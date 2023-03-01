@@ -1,9 +1,8 @@
-interface Props {
-  name: string;
-}
+// @ts-ignore
+const {App} = await import('ui/App');
 
-const App: React.FC<Props> = ({ name }) => {
-  return <div>blue, {name}!</div>;
+const Root: React.FC = () => {
+  return <App name="minyoung"/>;
 };
 
-export default App;
+export default Root;

@@ -8,13 +8,17 @@ module.exports = merge(common, {
     open: false,
     hot: true,
     compress: true,
-    port: 8081,
+    port: 8082,
     historyApiFallback: true,
     liveReload: true,
   },
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "/",
+    publicPath: "auto",
+  },
+  optimization: {
+    runtimeChunk: false,
+    splitChunks: false
   },
   module: {
     rules: [

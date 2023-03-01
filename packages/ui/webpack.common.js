@@ -1,12 +1,15 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require("webpack");
+const { ModuleFederationPlugin } = webpack.container;
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  experiments: {
+    topLevelAwait: true,
   },
   module: {
     rules: [
@@ -30,8 +33,12 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
+    new ModuleFederationPlugin({
+      name: 'ui',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/App.tsx',
+      }
     }),
     new webpack.ProvidePlugin({
       React: "react",

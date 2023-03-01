@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import Root from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
-root.render(<App name="World" />);
+root.render(<Root/>);
