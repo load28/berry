@@ -8,9 +8,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  experiments: {
-    topLevelAwait: true,
-  },
   module: {
     rules: [
       {
@@ -39,9 +36,6 @@ module.exports = {
       exposes: {
         './App': './src/App.tsx',
       }
-    }),
-    new webpack.ProvidePlugin({
-      React: "react",
-    }),
+    })
   ],
 };

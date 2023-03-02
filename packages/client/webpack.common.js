@@ -9,9 +9,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  experiments: {
-    topLevelAwait: true,
-  },
   module: {
     rules: [
       {
@@ -43,9 +40,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-    }),
-    new webpack.ProvidePlugin({
-      React: "react",
     }),
   ],
 };
