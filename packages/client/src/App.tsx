@@ -1,13 +1,16 @@
-import React, {Suspense} from "react";
+import React from "react";
 
 // @ts-ignore
-const App = React.lazy(() => import('ui/App'));
+const LoginPage = React.lazy(() => import("ui/LoginPage"));
 
 const Root: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <App name="minyoung"/>
-    </Suspense>
+    // <LoginPage/>
+    <div>
+      <input type="text"/>
+      <input type="password"/>
+      <button>Login</button>
+    </div>
   )
 };
 
