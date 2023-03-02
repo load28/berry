@@ -1,6 +1,5 @@
 import React, {Suspense} from "react";
 
-
 const LoginPage: React.FC = () => {
   return (
     <Suspense>

@@ -34,7 +34,7 @@ module.exports = {
       name: 'ui',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App.tsx',
+        './LoginPage': './src/pages/login/LoginPage.tsx',
       }
     })
   ],
