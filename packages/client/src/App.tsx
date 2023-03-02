@@ -11,7 +11,7 @@ const Root: React.FC = () => {
       <input type="password"/>
       <button>Login</button>
     </div>
-  )
+  );
 };
 
 export default Root;
