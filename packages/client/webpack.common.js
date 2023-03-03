@@ -30,7 +30,12 @@ module.exports = {
         use: [
           'style-loader', // 스타일을 DOM에 추가하는 로더
           'css-loader',
-          'sass-loader', // CSS를 자바스크립트 모듈로 변환하는 로더
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `@import "./src/styles.scss";`,
+            },
+          },
         ]
       }
     ],
