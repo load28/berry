@@ -4,5 +4,9 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "client:dev": "yarn workspace client run dev",
+    "ui:dev": "yarn workspace ui run dev"
+  }
 }
