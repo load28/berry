@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './App.module.scss';
+import styles from './app.module.scss';
 
 // @ts-ignore
 const LoginPage = React.lazy(() => import("ui/LoginPage"));
