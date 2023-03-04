@@ -1,5 +1,6 @@
 import React, {Suspense} from "react";
 import styles from './app.module.scss';
+
 const LoginPage = React.lazy(() => import("ui/LoginPage"));
 
 const Root: React.FC = () => {
