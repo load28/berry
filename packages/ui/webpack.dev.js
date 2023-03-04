@@ -19,13 +19,5 @@ module.exports = merge(common, {
   optimization: {
     runtimeChunk: false,
     splitChunks: false
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(sc|c)ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-    ],
   }
 });

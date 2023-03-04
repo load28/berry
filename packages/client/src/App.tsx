@@ -1,16 +1,13 @@
-import React from "react";
+import React, {Suspense} from "react";
 import styles from './app.module.scss';
-
-// @ts-ignore
 const LoginPage = React.lazy(() => import("ui/LoginPage"));
 
 const Root: React.FC = () => {
   return (
-    // <LoginPage/>
     <div className={styles.page}>
-      <input type="text"/>
-      <input type="password"/>
-      <button>Login</button>
+      <Suspense>
+        <LoginPage/>
+      </Suspense>
     </div>
   );
 };
