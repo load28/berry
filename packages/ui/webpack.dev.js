@@ -11,6 +11,9 @@ module.exports = merge(common, {
     port: 8082,
     historyApiFallback: true,
     liveReload: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    }
   },
   output: {
     filename: "[name].[contenthash].js",

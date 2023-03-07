@@ -5,6 +5,7 @@ import RedirectionPage from "./pages/redirection/RedirectionPage";
 
 // lazy loading component
 const LoginPage = React.lazy(() => import("ui/LoginPage"));
+const FeedPage = React.lazy(() => import("ui/FeedPage"));
 
 const Root: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Root: React.FC = () => {
         <Routes>
           <Route path="/" element={<RedirectionPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
-          <Route path="/feed" element={<LoginPage/>}/>
+          <Route path="/feed" element={<FeedPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

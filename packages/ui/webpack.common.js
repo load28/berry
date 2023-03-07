@@ -48,6 +48,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './LoginPage': './src/pages/login/LoginPage.tsx',
+        './FeedPage': './src/pages/feed/FeedPage.tsx',
       }
     })
   ],

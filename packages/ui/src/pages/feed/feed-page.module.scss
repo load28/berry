@@ -1,0 +1,25 @@
+$pagePadding: 24px;
+$lienHeight: 1.2;
+
+.page {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px $pagePadding;
+  line-height: $lienHeight;
+}
+
+.main {
+  height: 100%;
+
+  padding: 0 $pagePadding;
+}
