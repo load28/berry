@@ -21,46 +21,70 @@ interface FeedItem {
 }
 
 const FeedPage: React.FC = () => {
-  const [page, setPage] = useState<number>(0);
-
-  const nextHandler = () => {
-    setPage(page + 1);
-  }
+  const [feedViewIndex, setFeedViewIndex] = useState<number>(0);
 
   const list: FeedItem[] = [
+    {
+      id: '0',
+      title: 'title1',
+      addr: 'addr1',
+      description: 'description1',
+      score: StartValue.ONE,
+    },
     {
       id: '1',
       title: 'title1',
       addr: 'addr1',
       description: 'description1',
-      score: StartValue.ONE,
+      score: StartValue.TWO,
     }
-  ]
+  ];
+
+  const nextHandler = () => {
+    if (list.length - 1 <= feedViewIndex) {
+      return;
+    }
+
+    setFeedViewIndex(feedViewIndex + 1);
+  }
 
 
   return (
     <Suspense>
       <div className={styles.page}>
-        <header className={styles.header}>
-          <div>logo</div>
-          <div>search</div>
-          <div>user</div>
+        <header>
+          <FeedHeader/>
         </header>
         <main className={styles.main}>
-          {
-            list.map((item) => (
-              <div key={item.id}>
-                <div>{item.title}</div>
-                <div>{item.addr}</div>
-                <div>{item.description}</div>
-                <div>{item.score}</div>
-              </div>
-            ))
-          }
+          <FeedCard item={list[feedViewIndex]} />
           <button type="button" onClick={nextHandler}>Next</button>
         </main>
       </div>
     </Suspense>
+  )
+}
+
+const FeedHeader: React.FC = () => {
+  return (
+    <div className={styles.header}>
+      <div>logo</div>
+      <div>search</div>
+      <div>user</div>
+    </div>
+  )
+}
+
+const FeedCard: React.FC<{ item: FeedItem }> = ({item}) => {
+  const {id, addr, title, score, description} = item;
+
+  return (
+    <div key={id}>
+      <div>{id}</div>
+      <div>{title}</div>
+      <div>{addr}</div>
+      <div>{description}</div>
+      <div>{score}</div>
+    </div>
   )
 }
 

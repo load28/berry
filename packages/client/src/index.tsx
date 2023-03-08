@@ -1,7 +1,3 @@
-import { createRoot } from 'react-dom/client';
-import Root from './App';
+import("./bootstrap");
 
-const container = document.getElementById('root');
-const root = createRoot(container!);
-
-root.render(<Root/>);
+export {};

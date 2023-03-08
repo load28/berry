@@ -50,6 +50,16 @@ module.exports = {
       remotes: {
         'ui': 'ui@http://localhost:8082/remoteEntry.js',
       },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: false,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: false,
+        }
+      }
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

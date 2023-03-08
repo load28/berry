@@ -11,5 +11,5 @@ declare module "*.scss" {
  * module federation LoginPage component
  */
 declare module "ui/*" {
-  export default function LoginPage(): JSX.Element;
+  export default function pages(): JSX.Element;
 }

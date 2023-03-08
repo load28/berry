@@ -19,8 +19,4 @@ module.exports = merge(common, {
     filename: "[name].[contenthash].js",
     publicPath: "auto",
   },
-  optimization: {
-    runtimeChunk: false,
-    splitChunks: false
-  },
 });

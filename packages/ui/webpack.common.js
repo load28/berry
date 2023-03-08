@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = webpack.container;
 
 module.exports = {
@@ -49,7 +50,20 @@ module.exports = {
       exposes: {
         './LoginPage': './src/pages/login/LoginPage.tsx',
         './FeedPage': './src/pages/feed/FeedPage.tsx',
+      },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: false,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: false,
+        }
       }
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
   ],
 };
