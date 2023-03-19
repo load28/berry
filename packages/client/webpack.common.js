@@ -12,18 +12,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: [
+              "@babel/preset-env",
+              [
+                "@babel/preset-react",
+                {
+                  "runtime": "classic"
+                }
+              ],
+              "@babel/preset-typescript"
+            ]
           }
         }
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
       },
       {
         test: /\.module\.scss$/i,

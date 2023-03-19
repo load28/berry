@@ -1,10 +1,12 @@
-// export *  from './App';
-
-
+import React, {StrictMode} from "react";
 import { createRoot } from 'react-dom/client';
 import Root from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
-root.render(<Root/>);
+root.render(
+  <StrictMode>
+    <Root/>
+  </StrictMode>
+);
