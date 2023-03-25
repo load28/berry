@@ -78,9 +78,9 @@ const FeedCard: React.FC<{ item: FeedItem }> = ({item}) => {
   const {id, addr, title, score, description} = item;
 
   return (
-    <div key={id}>
-      <div>{id}</div>
-      <div>{title}</div>
+    <div className={styles.feedCard}
+         key={id}>
+      <div className={styles.feedCardTitle}>{title}</div>
       <div>{addr}</div>
       <div>{description}</div>
       <div>{score}</div>
