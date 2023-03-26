@@ -7,6 +7,8 @@ import Test from "./pages/redirection/Test";
 import SignalTest from "./pages/SignalTest";
 
 function Root() {
+  const project  = {id: '1', name: 'project', description: 'description'};
+
   return (
     <div className={styles.page}>
       <BrowserRouter>
@@ -15,7 +17,7 @@ function Root() {
           <Route path="/login"  element={<CacheDynamicComponent module={'./LoginPage'}/>}/>
           <Route path="/feed" element={<CacheDynamicComponent module={'./FeedPage'}/>}/>
           <Route path="/test" element={<Test/>}/>
-          <Route path="/signal" element={<SignalTest/>}/>
+          <Route path="/signal" element={<SignalTest project={project}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

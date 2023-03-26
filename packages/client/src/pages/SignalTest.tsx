@@ -1,56 +1,43 @@
 import React from "react";
-import {batch, computed, effect, signal} from "@preact/signals-react";
+import {Project, useProject, useProjectDescription, useProjectName} from "./SignalViewState";
+import {useEffectHook} from "../util/signal";
 
-
-const useDoubleCount = (initCount: number) => {
-  const count$$ = signal<number>(initCount);
-
-  const updateValue = (value: number) => {
-    count$$.value = updateDouble(value);
-  }
-
-  const updateDouble = (count: number): number => {
-    return count * count;
-  }
-
-  return [
-    count$$,
-    (count: number) => updateValue(count),
-  ]
+interface SignalTestProps {
+  project: Project;
 }
 
-const useCount = (initCount: number) => {
-  const count$$ = signal<number>(initCount);
-  return [
-    count$$,
-    (count: number) => count$$.value = count,
-  ]
-}
+const SignalTest: React.FC<SignalTestProps> = ({project}: SignalTestProps) => {
+  /**
+   * 모든 초기 값 셋팅은 props를 통해서 진행함
+   * 데이터가 다 로딩이 되었다는 것을 가정하고 진행
+   */
+  const [project$$, setProject] = useProject(project);
+  const [projectName$$, setProjectName] = useProjectName(project.name);
+  const [projectDescription$$, setProjectDescription] = useProjectDescription(project.description);
 
-const [double, setDouble] = useDoubleCount(0);
-const [count ,setCount] = useCount(0);
-
-effect(() => {
-  setDouble(count.value);
-});
-
-const SignalTest = () => {
+  /**
+   * 프로젝트 정보가 변경될때에 반응하여 특정 함수들을 동작시키는 커스텀 훅
+   */
+  const projectEffect = useEffectHook<Project>([setProjectName, setProjectDescription]);
+  projectEffect(project$$);
 
   return (
     <div>
-      <button onClick={() => batch(() => {
-        setCount(count.value + 1);
-      })}>update Count</button>
+      <button onClick={() => {
+        setProject({id: '2', name: 'project1', description: 'project1 description'});
+      }}>update Count</button>
       <div>
-        <span>count:</span>
-        <>{count}</>
+        <span>project name:</span>
+        <>{projectName$$}</>
       </div>
       <div>
-        <span>double count:</span>
-        <>{double}</>
+        <span>project description:</span>
+        <>{projectDescription$$}</>
       </div>
     </div>
   )
 }
+
+
 
 export default SignalTest;
