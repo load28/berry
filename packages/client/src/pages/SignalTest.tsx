@@ -25,7 +25,7 @@ const SignalTest: React.FC<SignalTestProps> = ({project}: SignalTestProps) => {
     <div>
       <button onClick={() => {
         setProject({id: '2', name: 'project1', description: 'project1 description'});
-      }}>update Count</button>
+      }}>update Project</button>
       <div>
         <span>project name:</span>
         <>{projectName$$}</>
