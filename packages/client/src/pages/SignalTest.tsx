@@ -1,6 +1,7 @@
 import React from "react";
 import {Project, useProject, useProjectDescription, useProjectName} from "./SignalViewState";
 import {useEffectHook} from "../util/signal";
+import {Signal} from "@preact/signals-react";
 
 interface SignalTestProps {
   project: Project;
@@ -19,7 +20,13 @@ const SignalTest: React.FC<SignalTestProps> = ({project}: SignalTestProps) => {
    * 프로젝트 정보가 변경될때에 반응하여 특정 함수들을 동작시키는 커스텀 훅
    */
   const projectEffect = useEffectHook<Project>([setProjectName, setProjectDescription]);
+  const projectNameApiEffect = useEffectHook<string>([(name: string) => {
+    console.log('api call effect', name);
+  }]);
+
   projectEffect(project$$);
+  projectNameApiEffect(projectName$$);
+
 
   return (
     <div>
