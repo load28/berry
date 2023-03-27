@@ -65,8 +65,10 @@ const FeedPage: React.FC = () => {
         </header>
         <main className={styles.main}>
           <FeedCard item={list[feedViewIndex]} />
-          <button type="button" onClick={prevHandler}>Prev</button>
-          <button type="button" onClick={nextHandler}>Next</button>
+          <div>
+            <button type="button" onClick={prevHandler}>Prev</button>
+            <button type="button" onClick={nextHandler}>Next</button>
+          </div>
         </main>
       </div>
     </Suspense>
