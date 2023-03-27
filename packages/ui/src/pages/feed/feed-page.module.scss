@@ -31,11 +31,33 @@ $lienHeight: 1.2;
 
   padding: 42px 24px;
 
-  background-color: azure;
+  background: #F5F5DC; /* 배경색: 베이지색 */
+  background: linear-gradient(to bottom, #F5F5DC, #FDF5E6); /* 그라데이션: 베이지색에서 연한 베이지색으로 */
   border-radius: 42px;
+
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 }
 
 .feedCardTitle {
   font-size: 24px;
   line-height: $lienHeight;
+}
+
+/* title 스타일 */
+.title {
+  font-size: 68px;
+  color: #436436;
+  margin-bottom: 24px;
+}
+
+/* address 스타일 */
+.address {
+  font-size: 20px;
+  color: #666666;
+}
+
+/* description 스타일 */
+.description {
+  font-size: 24px;
+  color: #666666;
 }

@@ -26,19 +26,27 @@ const FeedPage: React.FC = () => {
   const list: FeedItem[] = [
     {
       id: '0',
-      title: 'title1',
-      addr: 'addr1',
-      description: 'description1',
-      score: StartValue.ONE,
+      title: 'Black chicken',
+      addr: '삼성로 223번지',
+      description: '둘이 먹으면 1만원',
+      score: StartValue.FIVE,
     },
     {
       id: '1',
-      title: 'title1',
-      addr: 'addr1',
-      description: 'description1',
-      score: StartValue.TWO,
-    }
+      title: '돼지 스파게티',
+      addr: '종로 3가 220-2',
+      description: '처음 보는 비주얼',
+      score: StartValue.ONE,
+    },
   ];
+
+  const prevHandler = () => {
+    if (feedViewIndex === 0) {
+      return;
+    }
+
+    setFeedViewIndex(feedViewIndex - 1);
+  }
 
   const nextHandler = () => {
     if (list.length - 1 <= feedViewIndex) {
@@ -57,6 +65,7 @@ const FeedPage: React.FC = () => {
         </header>
         <main className={styles.main}>
           <FeedCard item={list[feedViewIndex]} />
+          <button type="button" onClick={prevHandler}>Prev</button>
           <button type="button" onClick={nextHandler}>Next</button>
         </main>
       </div>
@@ -80,10 +89,10 @@ const FeedCard: React.FC<{ item: FeedItem }> = ({item}) => {
   return (
     <div className={styles.feedCard}
          key={id}>
-      <div className={styles.feedCardTitle}>{title}</div>
-      <div>{addr}</div>
-      <div>{description}</div>
-      <div>{score}</div>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.description}>{description}</div>
+      <div className={styles.description}>{score}점</div>
+      <div className={styles.address}>{addr}</div>
     </div>
   )
 }
