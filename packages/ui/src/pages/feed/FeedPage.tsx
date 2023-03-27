@@ -95,6 +95,7 @@ const FeedCard: React.FC<{ item: FeedItem }> = ({item}) => {
       <div className={styles.description}>{description}</div>
       <div className={styles.description}>{score}점</div>
       <div className={styles.address}>{addr}</div>
+      <div className={styles.address}>{addr}</div>
     </div>
   )
 }
